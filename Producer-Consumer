@@ -1,8 +1,15 @@
 Bug Identification:
+
 In the consumer code we need to put a WHILE instead of an IF, while waiting.
 Because lets say if some other consumer B wakes up before the consumer A and accesses the item.
 The queue will get empty again. And then if consumer A wakes up, the queue will be empty and upon trying 
 to remove the item from the queue an exception will be thrown.
+
+Lets say our consumer A tries to access the empty queue and goes to the blocked queue. 
+Now the producer produces the item, locks and pushes to the queue. Now when the producer executes mutex.unlock() 
+it can switch the context to consumer B. And consumer B will acquire the lock.
+
+
 
 below is the pseudo code with the FIX:
 #######################################
