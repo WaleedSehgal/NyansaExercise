@@ -8,7 +8,7 @@ Code is in the urlHits.py file.
 Time complexity analysis:
   
 The worst case time complexity will be O(n), where n are the total entries (lines) 
-in the 'input.txt' file.
+in the 'input.txt' file and n is greater than the distinct dates and urls.
 
 
 ## problem 2 (producer-consumer):
