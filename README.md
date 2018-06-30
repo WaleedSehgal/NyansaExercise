@@ -2,6 +2,8 @@
 This repository contains solutions to both Nyansa Exercise problems.
 
 ## Problem 1 (URL hits):
+code is in the urlHits.py file.
+
 #Note:
 Time complexity analysis:
   
