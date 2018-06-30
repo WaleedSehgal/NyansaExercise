@@ -37,16 +37,16 @@ def outGMT(file):
             entry = entry.split('|')
             
             entry[0] = toGMT(int(entry[0]))
-            entry[1] = entry[1].rstrip() 
+            entry[1] = entry[1].strip() 
            
             if entry[0] not in out_map.keys():
-                out_map[entry[0]] = {}
-            
-            if entry[1] not in out_map[entry[0]].keys():
-                out_map [entry[0]][entry[1]] = 1
+                out_map[entry[0]] = {entry[1]:1}
             
             else:
-                out_map [entry[0]][entry[1]] += 1
+                if entry[1] not in out_map[entry[0]].keys():
+                    out_map[entry[0]][entry[1]] = 1
+                else:
+                    out_map[entry[0]][entry[1]] += 1
                               
     return out_map
 
