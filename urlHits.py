@@ -59,7 +59,7 @@ def dailyRep(file):
     
     out_map = outGMT(file)
     
-    for key in sorted(out_map.keys()):
+    for key in sorted(out_map,key=lambda date: time.strptime(date, "%m/%d/%Y")):
         print(key + ' GMT')
         
         url_hits = sorted(out_map[key].items(), key=operator.itemgetter(1), reverse = True)
