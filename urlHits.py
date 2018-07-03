@@ -58,11 +58,11 @@ then sorts and outputs data in the required format.
 def dailyRep(file):
     
     out_map = outGMT(file)
-    
-    for key in sorted(out_map,key=lambda date: time.strptime(date, "%m/%d/%Y")):
-        print(key + ' GMT')
+    dates = sorted(out_map,key=lambda date: time.strptime(date, "%m/%d/%Y"))
+    for day in dates:
+        print(day + ' GMT')
         
-        url_hits = sorted(out_map[key].items(), key=operator.itemgetter(1), reverse = True)
+        url_hits = sorted(out_map[day].items(), key=operator.itemgetter(1), reverse = True)
         
         for url in url_hits:
             print(url[0],url[1])
