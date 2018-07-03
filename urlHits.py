@@ -12,8 +12,13 @@ import operator
 '''
 NOTE: Time complexity analysis:
     
-The worst case time complexity will be O(n), where n are the total entries (lines) in
-the 'input.txt' file and n is greater than the distinct dates and urls.
+The dailyRep function is responsible to call the helper function outGMT to create a dictionary 
+and at the end print the summarized report will have O(N + D*logD + D*(N*logN)) time complexity.
+
+Here N is the total entries. D*logD is the time taken to sort dates in the dictionary and the last loop of the 
+dailyRep function takes D*(N*logN) time. Which is the time complexity to sort URLs at each particular date. Given that D<<N 
+the final run time complexity equation comes to N*LogN.
+
 '''
 
 #helper function to convert epoch to GMT
